@@ -60,4 +60,16 @@ if count >0:
     average = total / count
     print(f'the average is {average:.2f}')
 
-    
+# flag controlled loop
+matched = False 
+magic_number = random.randint(1,10)
+while not matched:
+    guess_number = int(input('enter a number between 1-10:'))
+    if guess_number == magic_number:
+        print('congrates, you get it right')
+    elif guess_number < magic_number:
+        print('YOUR NUMBER IS TOO LOWW')
+    else: 
+        print('your number is too high')
+if not matched:
+    print('you did not get it')
