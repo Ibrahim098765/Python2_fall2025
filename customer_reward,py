@@ -1,0 +1,117 @@
+# customer
+class Customer:
+    """ customer class to keep track customer reward """
+    def __init__(self, name, purchases=0.0):
+        """ initializer """
+        self.name = name
+        self.purchases = purchases
+    # GETTERS AND SETTERS
+    @property
+    def name(self):
+        """ return the name"""
+        return self.__name
+    @name.setter
+    def name(self,name):
+        """ set the name"""
+        self.__name = name
+    @property
+    def purchases(self):
+        """ return the puchases"""
+        return self.__purchases
+    @purchases.setter
+    def purchases(self,purchases):
+        """ sert the puchases"""
+        self.__purchases = purchases
+    # method
+    def calc_reward(eslf):
+        """ clculate the reward"""
+        return 0.0
+    def __str__(self):
+        """return object in string"""
+        return f'Name:{self.name} purchases:{self.purchases} Total Rewards:{self.calc_reward():.2f}'
+    
+     
+
+class RetailCustomer(Customer):
+
+    """ Retail customer to keep track its reward"""
+    def __init__(self, name='',purchases=0.0, email =''):
+        """ initializer"""
+        super().__init__(name, purchases)
+        self.email = email
+    # getter and setter
+    @property
+    def email(self):
+        """ return email"""
+        return self.__email
+    @email.setter
+    def email(self,email):
+        """set the email"""
+        self.__email = email
+
+
+
+
+
+    #method
+    def calc_reward(self):
+        """ calculate the reward"""
+        # rule  - <= 300  -  1%,  <=100  -  2%,  >100  -  2.5%
+        if self.purchases <= 500.0:
+            return self.purchases * 0.01
+        elif self.purchases <= 1000.0:
+            return self.purchases * 0.02
+        else:
+            return self.purchases * 0.025
+    def __str__(self):
+        """ return object in string"""
+        return f'{super().__str__()} contact: {self.email}'
+    
+class CorporateCustomer(Customer):
+    
+    """ Corporate customer to keep track its reward """
+    """ Retail customer to keep track its reward"""
+    def __init__(self, name='',purchases=0.0, contact =''):
+        """ initializer"""
+        super().__init__(name, purchases)
+        self.contact = contact
+    # getter and setter
+    @property
+    def contact(self):
+        """ return email"""
+        return self.__email
+    @contact.setter
+    def contact(self,email):
+        """set the email"""
+        self.__email = email
+    # init
+    def calc_reward(eslf):
+        return super().calc_reward() 
+    
+     #method
+    def calc_reward(self):
+        """ calculate the reward"""
+        # rule  - <= 500  -  1%,  <=1000  -  2%,  >1000  -  2.5%
+        if self.purchases <= 500.0:
+            return self.purchases * 0.01
+        elif self.purchases <= 1000.0:
+            return self.purchases * 0.02
+        else:
+            return self.purchases * 0.025
+    def __str__(self):
+        """ return object in string"""
+        return f'{super().__str__()} contact: {self.contact}'
+    
+# test classes
+if __name__ =='__main__':
+    # test code
+    john_smith = RetailCustomer()
+    john_smith.name = 'john smith'
+    john_smith.purchases = 150.0
+    john_smith.email = 'johnsmith@mail.com'
+    xyz = CorporateCustomer('XYZ Corp.',1250.0,'Mary jones')
+    Customer = [john_smith,xyz]
+    for customer in Customer:
+        print(customer)
+
+

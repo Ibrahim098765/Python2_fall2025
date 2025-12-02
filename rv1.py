@@ -1,5 +1,6 @@
 # Review for python chapter 3-5
 # get your input for avarage and calculate the grade 
+"""
 average = float(input("Enter the avarage:"))
 if average >= 90:
     letter_grade = 'A'
@@ -73,3 +74,63 @@ while not matched:
         print('your number is too high')
 if not matched:
     print('you did not get it')
+"""
+    #countner-controlled loop
+# Counter-controlled loop
+word = 'greetings'
+for i in range(len(word)):
+    print(word[i], end=' ')
+print()  # Print newline
+
+# Use continue and break
+# Print only odd numbers from 0 to 10
+for i in range(11):
+    if i % 2 == 0:
+        continue
+    print(i, end=' ')
+print()
+
+# Break loop on first odd number (i.e., stop immediately if i is odd)
+for i in range(11):
+    if i % 2 != 0:
+        break
+    print(i, end=' ')
+print()
+
+# Menu-controlled loop
+import random
+
+while True:
+    print('\nMath Calculator:')
+    print('1. Addition')
+    print('2. Multiplication')
+    print('3. Exit the program')
+
+    try:
+        menu_selection = int(input('Enter your selection (1, 2, 3): '))
+    except ValueError:
+        print('Invalid input. Please enter a number.')
+        continue
+
+    if menu_selection == 3:
+        print('Exiting the program...')
+        break
+    elif menu_selection == 1 or menu_selection == 2:
+        num1 = random.randint(10, 50)
+        num2 = random.randint(10, 50)
+
+        if menu_selection == 1:
+            result = num1 + num2
+            print(f'{num1} + {num2} = {result}')
+        else:  # menu_selection == 2
+            result = num1 * num2
+            print(f'{num1} * {num2} = {result}')
+    else:
+        print('Invalid selection. Please choose 1, 2, or 3.')
+
+
+
+
+
+
+
